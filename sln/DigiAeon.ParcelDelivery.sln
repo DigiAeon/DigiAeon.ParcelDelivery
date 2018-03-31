@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. DomainModel", "1. DomainModel", "{F1B02A83-30E0-4A58-BCC5-D40B027135F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Infrastructure", "2. Infrastructure", "{33B93C75-E1FC-43EB-A6F5-A862F5A18FD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Application", "3. Application", "{09B97B0A-875C-4512-A298-30F21F746F74}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Presentation", "4. Presentation", "{906247D4-F437-4A72-A081-110F1D051A99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiAeon.ParcelDelivery.Domain", "..\DigiAeon.ParcelDelivery.Domain\DigiAeon.ParcelDelivery.Domain.csproj", "{FD0BF379-C645-47DF-B307-D3996ABB275C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiAeon.ParcelDelivery.Infrastructure", "..\DigiAeon.ParcelDelivery.Infrastructure\DigiAeon.ParcelDelivery.Infrastructure.csproj", "{AA3719AA-D996-44AF-BBD3-024436793222}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiAeon.ParcelDelivery.UI.Services", "..\DigiAeon.ParcelDelivery.UI.Services\DigiAeon.ParcelDelivery.UI.Services.csproj", "{66577CEB-D990-49B6-96C8-1BFF6D34C5FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiAeon.ParcelDelivery.UI.Services.Interfaces", "..\DigiAeon.ParcelDelivery.UI.Services.Interfaces\DigiAeon.ParcelDelivery.UI.Services.Interfaces.csproj", "{E5B7998A-EDAD-4383-AFF8-481C5DD3237F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiAeon.ParcelDelivery.UI.Bootstrapper", "..\DigiAeon.ParcelDelivery.UI.Bootstrapper\DigiAeon.ParcelDelivery.UI.Bootstrapper.csproj", "{BCD30301-4867-458D-99DB-33BA702B84A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiAeon.ParcelDelivery.UI", "..\DigiAeon.ParcelDelivery.UI\DigiAeon.ParcelDelivery.UI.csproj", "{7E1B43BE-2154-49B3-B306-20FABF713E40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Tests", "5. Tests", "{A8CB6952-170D-4AAE-BF4D-8A11E8B85E5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigiAeon.ParcelDelivery.Tests", "..\DigiAeon.ParcelDelivery.Tests\DigiAeon.ParcelDelivery.Tests.csproj", "{D66726DD-909E-44A2-826F-EB9AFD3A8EF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD0BF379-C645-47DF-B307-D3996ABB275C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD0BF379-C645-47DF-B307-D3996ABB275C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD0BF379-C645-47DF-B307-D3996ABB275C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD0BF379-C645-47DF-B307-D3996ABB275C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA3719AA-D996-44AF-BBD3-024436793222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA3719AA-D996-44AF-BBD3-024436793222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA3719AA-D996-44AF-BBD3-024436793222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA3719AA-D996-44AF-BBD3-024436793222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66577CEB-D990-49B6-96C8-1BFF6D34C5FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66577CEB-D990-49B6-96C8-1BFF6D34C5FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66577CEB-D990-49B6-96C8-1BFF6D34C5FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66577CEB-D990-49B6-96C8-1BFF6D34C5FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5B7998A-EDAD-4383-AFF8-481C5DD3237F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5B7998A-EDAD-4383-AFF8-481C5DD3237F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5B7998A-EDAD-4383-AFF8-481C5DD3237F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5B7998A-EDAD-4383-AFF8-481C5DD3237F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCD30301-4867-458D-99DB-33BA702B84A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCD30301-4867-458D-99DB-33BA702B84A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCD30301-4867-458D-99DB-33BA702B84A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCD30301-4867-458D-99DB-33BA702B84A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E1B43BE-2154-49B3-B306-20FABF713E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E1B43BE-2154-49B3-B306-20FABF713E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E1B43BE-2154-49B3-B306-20FABF713E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E1B43BE-2154-49B3-B306-20FABF713E40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D66726DD-909E-44A2-826F-EB9AFD3A8EF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D66726DD-909E-44A2-826F-EB9AFD3A8EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D66726DD-909E-44A2-826F-EB9AFD3A8EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D66726DD-909E-44A2-826F-EB9AFD3A8EF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FD0BF379-C645-47DF-B307-D3996ABB275C} = {F1B02A83-30E0-4A58-BCC5-D40B027135F1}
+		{AA3719AA-D996-44AF-BBD3-024436793222} = {33B93C75-E1FC-43EB-A6F5-A862F5A18FD3}
+		{66577CEB-D990-49B6-96C8-1BFF6D34C5FD} = {09B97B0A-875C-4512-A298-30F21F746F74}
+		{E5B7998A-EDAD-4383-AFF8-481C5DD3237F} = {09B97B0A-875C-4512-A298-30F21F746F74}
+		{BCD30301-4867-458D-99DB-33BA702B84A4} = {906247D4-F437-4A72-A081-110F1D051A99}
+		{7E1B43BE-2154-49B3-B306-20FABF713E40} = {906247D4-F437-4A72-A081-110F1D051A99}
+		{D66726DD-909E-44A2-826F-EB9AFD3A8EF4} = {A8CB6952-170D-4AAE-BF4D-8A11E8B85E5D}
+	EndGlobalSection
+EndGlobal

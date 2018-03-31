@@ -1,0 +1,140 @@
+﻿@model DigiAeon.ParcelDelivery.UI.Services.Interfaces.ViewModels.DeliveryCost.CalculateViewModel
+@{
+    ViewBag.Title = "Calculate Delivery Cost";
+}
+
+<h2>Calculate Delivery Cost</h2>
+<br />
+@using (Html.BeginForm("Calculate", "DeliveryCost", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="input-group">
+        <label for="@Html.IdFor(model => model.Weight)">Weight (kg)</label>
+        <input type="text" maxlength="7" onkeypress="return isNumber(event);" id="@Html.IdFor(model => model.Weight)" name="@Html.IdFor(model => model.Weight)" class="form-control" />
+    </div>
+    <br />
+    <div class="input-group">
+        <label for="@Html.IdFor(model => model.Height)">Height (cm)</label>
+        <input type="text" maxlength="7" onkeypress="return isNumber(event);" id="@Html.IdFor(model => model.Height)" name="@Html.IdFor(model => model.Height)" class="form-control" />
+    </div>
+    <br />
+    <div class="input-group">
+        <label for="@Html.IdFor(model => model.Weight)">Width (cm)</label>
+        <input type="text" maxlength="7" onkeypress="return isNumber(event);" id="@Html.IdFor(model => model.Width)" name="@Html.IdFor(model => model.Width)" class="form-control" />
+    </div>
+    <br />
+    <div class="input-group">
+        <label for="@Html.IdFor(model => model.Weight)">Depth (cm)</label>
+        <input type="text" maxlength="7" onkeypress="return isNumber(event);" id="@Html.IdFor(model => model.Depth)" name="@Html.IdFor(model => model.Depth)" class="form-control" />
+    </div>
+    <br />
+    <div clas="input-group">
+        <input type="button" id="calculateDeliveryCost" class="btn btn-primary" value="Calculate"/>
+    </div>
+    <br />
+    <div class="alert alert-danger" id="divError" style="display:none;"></div>
+    <div class="alert alert-success" id="divSuccess" style="display:none;"></div>
+}
+<script type="text/javascript">
+    function isNumber(e) {
+        e = (e) ? e : window.event;
+        var charCode = (e.which) ? e.which : e.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+
+    $(document).keypress(function (e) {
+        if (e.which == 13) {
+            $("#calculateDeliveryCost").click();
+        }
+    });
+
+    $(document).ready(function() {
+        $("#calculateDeliveryCost").bind("click", function(e) {
+
+            if ($(this).val() == "Calculating...") {
+                return;
+            }
+
+            $("#divError").html("");
+            $("#divSuccess").html("");
+            $("#divError").hide();
+            $("#divSuccess").hide();
+
+            if ($.trim($("#@Html.IdFor(x => x.Weight)").val()).length <= 0) {
+                $("#divError").append("Please enter Weight<br/>")
+            }
+
+            if ($.trim($("#@Html.IdFor(x => x.Height)").val()).length <= 0) {
+                $("#divError").append("Please enter Height<br/>")
+            }
+
+            if ($.trim($("#@Html.IdFor(x => x.Width)").val()).length <= 0) {
+                $("#divError").append("Please enter Width<br/>")
+            }
+
+            if ($.trim($("#@Html.IdFor(x => x.Depth)").val()).length <= 0) {
+                $("#divError").append("Please enter Depth<br/>")
+            }
+
+            if ($("#divError").html() != "")
+            {
+                $("#divError").show();
+                return;
+            }
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("GetDeliveryCost", "DeliveryCost")",
+                data: JSON.stringify({ "@Html.IdFor(x => x.Weight)": $('#@Html.IdFor(x => x.Weight)').val(), "@Html.IdFor(x => x.Height)": $('#@Html.IdFor(x => x.Height)').val(), "@Html.IdFor(x => x.Width)": $('#@Html.IdFor(x => x.Width)').val(), "@Html.IdFor(x => x.Depth)": $('#@Html.IdFor(x => x.Depth)').val() }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                beforeSend: function () { $("#calculateDeliveryCost").val("Calculating...") },
+                complete: function () { $("#calculateDeliveryCost").val("Calculate") },
+                success: successFunc,
+                error: errorFunc
+            });
+
+            function successFunc(data, status) {
+                if (data.Errors.length > 0) {
+                    $.each(data.Errors, function (idx, val) {
+                        var lessOrEqualZero = "LESS_OR_EQUAL_ZERO";
+
+                        if (val.Identifier == "Weight" && val.Code == lessOrEqualZero) {
+                            $("#divError").append("Weight must be positive integer value<br/>")
+                        }
+
+                        if (val.Identifier == "Height" && val.Code == lessOrEqualZero) {
+                            $("#divError").append("Height must be positive integer value<br/>")
+                        }
+
+                        if (val.Identifier == "Width" && val.Code == lessOrEqualZero) {
+                            $("#divError").append("Width must be positive integer value<br/>")
+                        }
+
+                        if (val.Identifier == "Depth" && val.Code == lessOrEqualZero) {
+                            $("#divError").append("Depth must be positive integer value<br/>")
+                        }
+                    });
+
+                    $("#divError").show();
+                } else {
+                    $("#divSuccess").append("Category: " + data.Category + "<br/>");
+                    if (data.Cost <= 0) {
+                        $("#divSuccess").append("Cost: NA");
+                    } else {
+                        $("#divSuccess").append("Cost: $" + data.Cost.toFixed(2) + "<br/>");
+                    }
+
+                    $("#divSuccess").show();
+                }
+            }
+
+            function errorFunc() {
+                console.log('error');
+            }
+        });
+    });
+</script>
